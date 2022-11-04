@@ -109,6 +109,13 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
     }
 
     /**
+     * @dev models the rarity of the tokens
+     */
+    function getChanceArray() public pure returns (uint256[3] memory) {
+        return [10, 30, MAX_CHANCE_VALUE];
+    }
+
+    /**
      * @dev Here we get the breed of the dog based on the random number
      */
     function getBreedFromModdedRng(uint256 moddedRng) public pure returns (Breed) {
@@ -122,13 +129,6 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
             cumulativeSum += chanceArray[i];
         }
         revert RandomIpfsNft__RangeOutOfBounds();
-    }
-
-    /**
-     * @dev models the rarity of the tokens
-     */
-    function getChanceArray() public pure returns (uint256[3] memory) {
-        return [10, 30, MAX_CHANCE_VALUE];
     }
 
     /// Getter functions
