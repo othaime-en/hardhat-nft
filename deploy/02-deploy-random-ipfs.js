@@ -3,6 +3,7 @@ const { developmentChains, networkConfig } = require("../helper-hardhat-config")
 const { verify } = require("../utils/verify")
 const { storeImages, storeTokenUriMetadata } = require("../utils/uploadToPinata")
 
+const FUND_AMOUNT = ethers.utils.parseEther("0.1")
 const imagesLocation = "./images/randomNft"
 const metadataTemplate = {
     name: "",
@@ -38,6 +39,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         const tx = await VRFCoordinatorV2Mock.createSubscription()
         const txReceipt = await tx.wait(1)
         subscriptionId = txReceipt.events[0].args.subId
+        await VRFCoordinatorV2Mock.fundSubscription(subscriptionId, FUND_AMOUNT)
     } else {
         vrfCoordinatorV2Address = networkConfig[chainId].vrfCoordinatorV2
         subscriptionId = networkConfig[chainId].subscriptionId
