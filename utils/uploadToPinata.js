@@ -7,6 +7,7 @@ const pinataApiKey = process.env.PINATA_API_KEY
 const pinataSecretApiKey = process.env.PINATA_API_SECRET
 const pinata = pinataSDK(pinataApiKey, pinataSecretApiKey)
 
+// Storing images in IPFS through Pinata
 async function storeImages(imagesFilePath) {
     const fullImagesFilePath = path.resolve(imagesFilePath)
     const files = fs.readdirSync(fullImagesFilePath)
@@ -30,6 +31,7 @@ async function storeImages(imagesFilePath) {
     return { responses, files }
 }
 
+// Storing metadata in IPFS through Pinata
 async function storeTokenUriMetadata(tokenUriMetadata) {
     try {
         const response = await pinata.pinJSONToIPFS(tokenUriMetadata)
