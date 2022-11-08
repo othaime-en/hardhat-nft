@@ -1,6 +1,7 @@
 #hardhat
 artifacts
 cache
+gas-report.txt
 
 # NODE
 node_modules
