@@ -12,7 +12,7 @@ error RandomIpfsNft__InsufficientFee();
 error RandomIpfsNft__TransferFailed();
 
 /**
- * @title RandomIpfs
+ * @title RandomIpfsNft
  * @notice This implements a functionality to get random NFTs
  * @dev When we mint, we trigger a chainlink VRF call that gives us a random number
  * @dev We then use that random number to get a random NFT either a PUG, SHIBA, or St. Bernard
