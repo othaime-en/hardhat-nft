@@ -1,4 +1,5 @@
-// We are going to skimp a bit on these tests...
+// These tests came from the course repo and aren't modified well
+// BE SURE TO CHECK BACK LATER TO UPDATE THE TEST EFFECTIVELY
 
 const { assert, expect } = require("chai")
 const { network, deployments, ethers } = require("hardhat")
@@ -22,7 +23,7 @@ const lowTokenUri =
           beforeEach(async () => {
               accounts = await ethers.getSigners()
               deployer = accounts[0]
-              await deployments.fixture(["mocks", "dynamicsvg"])
+              await deployments.fixture(["mocks", "dynamicSvg"])
               dynamicSvgNft = await ethers.getContract("DynamicSvgNft")
               mockV3Aggregator = await ethers.getContract("MockV3Aggregator")
           })
@@ -41,10 +42,7 @@ const lowTokenUri =
           describe("mintNft", () => {
               it("emits an event and creates the NFT", async function () {
                   const highValue = ethers.utils.parseEther("1") // 1 dollar per ether
-                  await expect(dynamicSvgNft.mintNft(highValue)).to.emit(
-                      dynamicSvgNft,
-                      "CreatedNFT"
-                  )
+                  await expect(dynamicSvgNft.mintNft(highValue)).to.emit(dynamicSvgNft, "CreateNft")
                   const tokenCounter = await dynamicSvgNft.getTokenCounter()
                   assert.equal(tokenCounter.toString(), "1")
                   const tokenURI = await dynamicSvgNft.tokenURI(0)
