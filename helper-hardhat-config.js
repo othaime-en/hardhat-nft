@@ -20,7 +20,7 @@ const networkConfig = {
 }
 
 const DECIMALS = "18"
-const INITIAL_PRICE = ethers.utils.parseUnits("2000", ether)
+const INITIAL_PRICE = ethers.utils.parseUnits("2000", DECIMALS)
 const developmentChains = ["hardhat", "localhost"]
 
 module.exports = {
