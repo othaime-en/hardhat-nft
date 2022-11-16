@@ -6,6 +6,12 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "base64-sol/base64.sol";
 
+/**
+ * @title DynamicSvgNft
+ * @author Othaimeen
+ * @notice This contract creates a dynamic SVG NFT based on the price of ETH
+ * @notice A low svg is returned if the price is low and vice versa
+ */
 contract DynamicSvgNft is ERC721 {
     uint256 private s_tokenCounter;
     string private i_lowImageUri;
