@@ -1,4 +1,9 @@
-const { developmentChains, networkConfig } = require("../helper-hardhat-config.js")
+const {
+    developmentChains,
+    networkConfig,
+    DECIMALS,
+    INITIAL_PRICE,
+} = require("../helper-hardhat-config.js")
 
 const BASE_FEE = ethers.utils.parseEther("0.25") // It costs 0.25 LINK to request a random number
 const GAS_PRICE_LINK = 1e9 // LINK per gas. A calculated value based on the gas price of the chain
@@ -13,6 +18,11 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
         await deploy("VRFCoordinatorV2Mock", {
             from: deployer,
             args: args,
+            log: true,
+        })
+        await deploy("MockV3Aggregator", {
+            from: deployer,
+            args: [DECIMALS, INITIAL_PRICE],
             log: true,
         })
         log("Mocks Deployed!!!")
