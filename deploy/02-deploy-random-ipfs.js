@@ -3,7 +3,7 @@ const { developmentChains, networkConfig } = require("../helper-hardhat-config")
 const { verify } = require("../utils/verify")
 const { storeImages, storeTokenUriMetadata } = require("../utils/uploadToPinata")
 
-const FUND_AMOUNT = ethers.utils.parseEther("0.1")
+const FUND_AMOUNT = ethers.utils.parseEther("5")
 
 const imagesLocation = "./images/randomNft"
 const metadataTemplate = {
