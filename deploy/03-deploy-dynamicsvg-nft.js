@@ -1,5 +1,5 @@
 const { network, ethers } = require("hardhat")
-const { developmentChains } = require("../helper-hardhat-config")
+const { developmentChains, networkConfig } = require("../helper-hardhat-config")
 const { verify } = require("../utils/verify")
 const fs = require("fs")
 
@@ -32,7 +32,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     log("-----------------------------------------------------------")
 
     if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
-        await verify(DynamicSvgNft.address, args)
+        await verify(dynamicSvgNft.address, args)
     }
 }
 
