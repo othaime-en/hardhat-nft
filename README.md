@@ -6,7 +6,7 @@ The Project covers three types of NFTs
     - The tokenUris are stored on IPFS 
     - They need to be pinned. So we use a service like pinata
 
-3. DynamicSvg - The NFT is gonna change based off of real world parameters like the price of ETH
+3. DynamicSvg - The NFT is gonna change based off of real world parameters like in this case, the price of ETH
     - Data is onchain so it is much more expensive
     - If the price of ETH is above X -> Happy face
     - If the price of ETH is below X -> Frowny face
