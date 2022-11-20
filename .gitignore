@@ -2,6 +2,7 @@
 artifacts
 cache
 gas-report.txt
+deployments
 
 # NODE
 node_modules
