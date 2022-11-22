@@ -22,7 +22,7 @@ error RandomIpfsNft__TransferFailed();
 contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
     // Type declarations
     enum Breed {
-        PUB,
+        PUG,
         SHIBA_INU,
         ST_BENARD
     }
